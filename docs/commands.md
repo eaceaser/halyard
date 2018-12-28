@@ -7374,6 +7374,7 @@ hal config security authn saml edit [parameters]
  * `--keystore`: Path to the keystore that contains this server's private key. This key is used to cryptographically sign SAML AuthNRequest objects.
  * `--keystore-alias`: The name of the alias under which this server's private key is stored in the --keystore file.
  * `--keystore-password`: The password used to access the file specified in --keystore
+ * `--max-authentication-age`: The max authentication age of the IdP's SAML assertions.
  * `--metadata`: The address to your identity provider's metadata XML file. This can be a URL or the path of a local file.
  * `--no-validate`: (*Default*: `false`) Skip validation.
  * `--service-address-url`: The address of the Gate server that will be accesible by the SAML identity provider. This should be the full URL, including port, e.g. https://gate.org.com:8084/. If deployed behind a load balancer, this would be the laod balancer's address.

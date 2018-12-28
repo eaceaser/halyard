@@ -79,6 +79,12 @@ public class EditSamlCommand extends AbstractEditAuthnMethodCommand<Saml> {
   private String keystoreAliasName;
 
   @Parameter(
+      names = "--max-authentication-age",
+      description = "The max authentication age for the SAML assertions."
+  )
+  private Long maxAuthenticationAge;
+
+  @Parameter(
       names = "--service-address-url",
       description = "The address of the Gate server that will be accesible by the SAML identity " +
           "provider. This should be the full URL, including port, e.g. https://gate.org.com:8084/" +
@@ -93,6 +99,7 @@ public class EditSamlCommand extends AbstractEditAuthnMethodCommand<Saml> {
     s.setKeyStorePassword(isSet(keystorePassword) ? keystorePassword : s.getKeyStorePassword());
     s.setKeyStoreAliasName(isSet(keystoreAliasName) ? keystoreAliasName : s.getKeyStoreAliasName());
     s.setServiceAddress(isSet(serviceAddress) ? serviceAddress : s.getServiceAddress());
+    s.setMaxAuthenticationAge(isSet(maxAuthenticationAge) ? maxAuthenticationAge : s.getMaxAuthenticationAge());
 
     if (isSet(metadata)) {
       if (metadata.startsWith("http")) {

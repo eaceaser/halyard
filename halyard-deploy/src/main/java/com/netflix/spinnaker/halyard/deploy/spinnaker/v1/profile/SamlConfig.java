@@ -41,6 +41,8 @@ public class SamlConfig {
   String redirectHostname;
   String redirectBasePath;
 
+  long maxAuthenticationAge;
+
   public SamlConfig(Security security) {
     if (!security.getAuthn().getSaml().isEnabled()) {
       return;
@@ -67,6 +69,9 @@ public class SamlConfig {
     }
     if (StringUtils.isNotEmpty(u.getPath())) {
       this.redirectBasePath = u.getPath();
+    }
+    if (saml.getMaxAuthenticationAge() != null) {
+      this.maxAuthenticationAge = saml.getMaxAuthenticationAge();
     }
   }
 }

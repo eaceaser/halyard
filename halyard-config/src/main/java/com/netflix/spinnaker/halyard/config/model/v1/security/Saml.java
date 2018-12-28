@@ -40,4 +40,5 @@ public class Saml extends AuthnMethod {
   private String keyStoreAliasName;
 
   private URL serviceAddress;
+  private Long maxAuthenticationAge;
 }

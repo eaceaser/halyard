@@ -81,6 +81,11 @@ public class SamlValidator extends Validator<Saml> {
       p.addProblem(Problem.Severity.ERROR, "No keystore alias specified.");
     }
 
+    if (saml.getMaxAuthenticationAge() < 0) {
+      p.addProblem(Problem.Severity.ERROR, "Max authentication age must be a positive integer.")
+          .setRemediation("Update max authentication age to your IdP's session timeout. The default value is 7200 (2 hours).");
+    }
+
     InputStream is = null;
     try {
       File f = new File(new URI("file:" + saml.getKeyStore()));
